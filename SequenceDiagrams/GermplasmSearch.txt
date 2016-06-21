@@ -1,0 +1,42 @@
+title Germplasm Search
+
+participant User
+participant GermplasmSearchResultsComponent
+participant GermplasmDataManager
+participant GermplasmQuery
+participant Pedigree Service
+participant Crop Database
+
+User->+GermplasmSearchResultsComponent: doSearch( Search Query )
+
+GermplasmSearchResultsComponent->+GermplasmDataManager: countSearchForGermplasm
+GermplasmDataManager->+Crop Database: Count Result Query
+Crop Database-->-GermplasmDataManager: Total number of applicable Rows
+GermplasmDataManager-->-GermplasmSearchResultsComponent: Total number of applicable Rows
+note left of GermplasmSearchResultsComponent:
+50 ms
+end note over
+
+GermplasmSearchResultsComponent->+GermplasmDataManager: Get Page One of Result (applyGermplasmResults)
+GermplasmDataManager->+GermplasmQuery: searchForGermplasms
+GermplasmQuery->+Crop Database: Query database using name, inventory, MGID members
+Crop Database-->-GermplasmQuery: Page 1 search results from the database
+GermplasmQuery-->-GermplasmDataManager: Page 1 search results
+GermplasmDataManager-->-GermplasmSearchResultsComponent: Page 1 search results
+note left of GermplasmSearchResultsComponent:
+38 ms
+end note over
+
+alt For each result generate pedigree string
+GermplasmSearchResultsComponent->+Pedigree Service: Generate pedigree string for every result found
+alt Recursive Tree Fetching
+Pedigree Service->+Crop Database: Traverse germplasm tree to generate pedigree string
+Crop Database-->-Pedigree Service: Traverse germplasm tree to generate pedigree string
+end
+Pedigree Service-->-GermplasmSearchResultsComponent: Generated Pedigree String
+end
+note left of GermplasmSearchResultsComponent:
+1,853 ms
+end note over
+GermplasmSearchResultsComponent-->-User: Page 1 of Search Results
+

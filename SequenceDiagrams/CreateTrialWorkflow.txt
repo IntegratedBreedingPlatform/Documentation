@@ -1,0 +1,41 @@
+
+https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgQ3JlYXRlIFRyaWFsIFdvcmtmbG93CgojIFRlc3QKClVzZXJJbnRlcmZhY2UtPisAKQYAKQVDb250cm9sbGVyOgA5DQpub3RlIHJpZ2h0IG9mAFoHACERSW5pdCBzZXNzaW9uIG9iamVjdCBcbiBVc2VyU2VsZWN0aW9uCgBZFS0tPi0AgQoNOiBEaXNwbGF5IElucHV0IFNjcmVlbgCBKhJJbXBvcnRHZXJtcGxhc21MaXN0AIE4DABxBiAAFwkgTGlzdACBPg8AIyB0b3JlIGluAIE4IQBuHQCBRhsAghUGZWQAgRYGAIMNEU1hbmFnZVNldHRpbmdzAIMVDEFkZCBFbnZpcm9ubWVudCBWYXJpYWJsZSAobiB0aW1lcykAgygPADEaAIE8KQB2GACDJhthZGRlZCB2AIEWBwCBLzIAgVcJQ29uZGl0aW9uAIFZCABagQZlAIJ4C2MAgRoJAIFxBQCDHjBUcmFpdHMAgiuBFQCBFQYAiCsSRXhwRGVzaWduAIgvDEdlbmVyYXRlIEV4cGVyaW1lbnRhbCAAIgYAiDwPACsVAIZLKQBrEwCIMBttZWFzdXJlAIYoBXQAhHcWAIl1F1N1Ym1pdCBjb2wAhyUHdACKVwVpbmZvcm1hAIlTBQCJfSUAiCQpAIl-KFN1Y2Nlc3Mgc2lnbmFsAIlvMUZpbmFsIFNhdmUAiSAfPitEYXRhYmFzZVBlcnNpc3RlbmNlU2VydmljZXM6IAAOBwCMGA8AFh1UaGlzIGlzIHdoZXJlIG1vcwCMVQV0aGUAiTcFIGlzIHNwZW50IHNlZSBkZXRhaWxzIGJlbG93LgoAcBstPi0Ai3QfAIE5B2FuY2UgcwCCOAZmdWwAgV8gAIJZHwCORA9PcGVuAI4_EVJlZGlyZWN0IHRvIG9wZW4AgWcFYwCPJgUAhEkHCg&s=roundgreen
+
+
+title Create Trial Workflow
+
+UserInterface->+CreateTrialController: Create Trial
+note right of CreateTrialController: Init session object \n UserSelection
+CreateTrialController-->-UserInterface: Display Input Screen
+
+UserInterface->+ImportGermplasmListController: Select Germplasm List
+note right of ImportGermplasmListController: Store in session object \n UserSelection
+ImportGermplasmListController-->-UserInterface: Display Selected List
+
+UserInterface->+ManageSettingsController: Add Environment Variable (n times)
+note right of ManageSettingsController: Store in session object \n UserSelection
+ManageSettingsController-->-UserInterface: Display added variable
+
+UserInterface->+ManageSettingsController: Add Enironment Condition (n time)
+note right of ManageSettingsController: Store in session object \n UserSelection
+ManageSettingsController-->-UserInterface: Display environment condition added
+
+UserInterface->+ManageSettingsController: Add Traits (n times)
+note right of ManageSettingsController: Store in session object \n UserSelection
+ManageSettingsController-->-UserInterface: Display added Traits
+
+UserInterface->+ExpDesignController: Generate Experimental Design
+note right of ExpDesignController: Store in session object \n UserSelection
+ExpDesignController-->-UserInterface: Display measurement table
+
+UserInterface->+CreateTrialController: Submit collected trial information
+note right of CreateTrialController: Store in session object \n UserSelection
+CreateTrialController-->-UserInterface: Success signal
+
+UserInterface->+ImportGermplasmListController: Final Save
+ImportGermplasmListController->+DatabasePersistenceServices: Persist
+note right of DatabasePersistenceServices: This is where most of the time is spent see details below.
+DatabasePersistenceServices->-ImportGermplasmListController: Persistance successful
+ImportGermplasmListController->-UserInterface: Success signal
+UserInterface->OpenTrialController: Redirect to open the created trial
+

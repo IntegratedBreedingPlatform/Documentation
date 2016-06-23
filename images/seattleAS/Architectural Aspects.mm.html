@@ -1,0 +1,460 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Architectural Aspects</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+<p>Architectural Aspects
+<ul><li>Types of Architecture
+<ul><li>Layered architecture
+<ul><li>Open vs Closed Layers
+
+</li>
+<li>&nbsp;
+
+</li>
+
+</ul>
+</li>
+<li>Event driven architecture
+<ul><li>Event processor topology 
+<ul><li>Centralised or federated &nbsp;event processor
+
+</li>
+<li>Mediation component
+
+</li>
+
+</ul>
+</li>
+<li>Broker topology
+<ul><li>Messaging
+
+</li>
+<li>transport mechanism
+
+</li>
+<li>No mediation or orchestration 
+
+</li>
+
+</ul>
+</li>
+<li>Broker less topology
+<ul><li>No broker or mediator 
+
+</li>
+<li>Each process needs to know where to propagate the next event 
+
+</li>
+
+</ul>
+</li>
+<li>Advantages
+<ul><li>Highly decoupled and highly scalable &nbsp;
+
+</li>
+<li>Good for event based business
+<ul><li>Health Care
+
+</li>
+<li>Business processes
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Disadvantage
+<ul><li>High complex
+
+</li>
+<li>Not good for high degree orchestration, data sharing &nbsp;or reuse
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Service oriented architecture 
+<ul><li>Components
+<ul><li>Business service
+<ul><li>abstract
+
+</li>
+<li>business users
+
+</li>
+<li>course grain
+
+</li>
+<li>enterprise level
+
+</li>
+<li>Example
+<ul><li>Process claim
+
+</li>
+<li>Place Order
+
+</li>
+<li>Execute Trade
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Messaging Bus
+<ul><li>process choreography
+
+</li>
+<li>service orchestration
+
+</li>
+<li>service registry
+
+</li>
+<li>protocol transformation
+
+</li>
+<li>message transformation
+
+</li>
+
+</ul>
+</li>
+<li>Enterprise Service
+<ul><li>Attributes
+<ul><li>concrete
+
+</li>
+<li>architect shared service team
+
+</li>
+<li>course grained
+
+</li>
+<li>enterprise level
+
+</li>
+
+</ul>
+</li>
+<li>Examples
+<ul><li>Create customer
+
+</li>
+<li>Calculate quote
+
+</li>
+<li>Check compliance 
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Infrastructure services
+<ul><li>attributes
+<ul><li>concrete
+
+</li>
+<li>application development team
+
+</li>
+<li>fine grained
+
+</li>
+<li>enterprise level
+
+</li>
+
+</ul>
+</li>
+<li>Single sign on
+
+</li>
+
+</ul>
+</li>
+<li>Application services
+<ul><li>attributes
+<ul><li>concrete
+
+</li>
+<li>application development team
+
+</li>
+<li>fine grained
+
+</li>
+<li>Not shared across the enterprise
+
+</li>
+
+</ul>
+</li>
+<li>Examples
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Defining granularity is the hardest part of this architecture
+
+</li>
+<li>Good patter for understanding and implementing business process and services
+
+</li>
+<li>Very high level of complexity
+
+</li>
+<li>Difficult fo implement due to hype, misconception, and heavy business user involvement 
+
+</li>
+
+</ul>
+</li>
+<li>Pipeline architecture
+<ul><li>Pipes and filter architecture 
+
+</li>
+<li>Two components 
+<ul><li>Pipes 
+<ul><li>Unidirectional
+
+</li>
+
+</ul>
+</li>
+<li>Filters
+<ul><li>Independent
+
+</li>
+<li>One single specific task
+
+</li>
+<li>types
+<ul><li>Producer consumer
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Microkernel architecture aka Plugin architecture
+<ul><li>Good for change
+
+</li>
+
+</ul>
+</li>
+<li>Space based architecture
+<ul><li>Scale out a database
+<ul><li>Is hard
+
+</li>
+
+</ul>
+</li>
+<li>Variable scalability
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Architecture Anti Patterns
+<ul><li>Architecture by implication
+
+</li>
+<li>Covering your assets 
+<ul><li>Not deciding on a pattern
+
+</li>
+
+</ul>
+</li>
+<li>Which is brew
+<ul><li>Group architecture. Design by committee
+
+</li>
+<li>Responsible and knowledge 
+
+</li>
+<li>On going architecture 
+
+</li>
+
+</ul>
+</li>
+<li>Gold plating
+<ul><li>Adding stuff that never gets released
+
+</li>
+<li>Never gets done
+
+</li>
+<li>Complex and overly detailed
+
+</li>
+
+</ul>
+</li>
+<li>Vendor King
+<ul><li>Loss of control to the vendor.
+
+</li>
+<li>Vendor locking
+
+</li>
+<li>Vendor product taking over the architecture
+
+</li>
+
+</ul>
+</li>
+<li>Big bang architecture
+<ul><li>big upfront design
+
+</li>
+
+</ul>
+</li>
+<li>Armchair architecture
+<ul><li>not implementing architecture
+
+</li>
+<li>Non coding architecture
+
+</li>
+<li>Need to understand the feasibility of the decision.
+
+</li>
+<li>Junior developers. Different architecture
+
+</li>
+<li>How to avoid
+<ul><li>Do not release architecture decisions too early 
+
+</li>
+<li>Stay current in coding
+
+</li>
+<li>Big upfront design and they leave
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Playing with toys
+<ul><li>Playing with cool stuff
+
+</li>
+
+</ul>
+</li>
+<li>Spider web architecture
+<ul><li>Requirements drive architecture
+
+</li>
+
+</ul>
+</li>
+<li>Infinity architecture 
+<ul><li>Generalised architecture 
+
+</li>
+<li>Expensive and try to solve every problem
+
+</li>
+<li>Need and expensive to maintain
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Leadership and Communication
+
+</li>
+<li>Technical Knowledge
+
+</li>
+<li>Continuous Delivery 
+<ul><li><p>Test Driven Development 
+<p>Continuous Integration
+<p>The longer you put it off the worse it gets
+<p>Functional Tests
+<p>Integration Tests
+<p>Unit Tests
+<p>Performance Tests
+<p>Software is always deployable 
+<p>The Last Mile
+<p>Definition
+<p>Fast automated feedback on the production readiness of your application everytime there is a change to your code, infrastructure or configuration. &nbsp;
+<ul><li>OS patch will kickoff a build.
+
+</li>
+
+</ul><p>Version ready to be deployed
+<p>Any one can self service
+</li>
+</ul>
+</li>
+<li>Business and Domain Knowledge
+
+</li>
+<li>Methodology and Stratergy
+
+</li>
+<li>Definition
+<ul><li><p>This shared understanding is called &#8216;architecture.&#8217; This understanding includes how the system is divided into components and how the components interact through interfaces. These components are usually composed of smaller components, but the architecture only includes the components and interfaces that are understood by all the developers
+<p>Its a skeleton
+<p>&nbsp;
+</li>
+</ul>
+</li>
+
+</ul></body>
+</html>

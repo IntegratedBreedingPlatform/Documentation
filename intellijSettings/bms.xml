@@ -1,8 +1,12 @@
 <code_scheme name="bms" version="173">
   <option name="RIGHT_MARGIN" value="9999" />
   <CssCodeStyleSettings>
-    <option name="BLANK_LINES_BETWEEN_BLOCKS" value="0" />
+    <option name="KEEP_SINGLE_LINE_BLOCKS" value="true" />
   </CssCodeStyleSettings>
+  <JSCodeStyleSettings>
+    <option name="OBJECT_LITERAL_WRAP" value="1" />
+    <option name="IMPORTS_WRAP" value="1" />
+  </JSCodeStyleSettings>
   <JavaCodeStyleSettings>
     <option name="GENERATE_FINAL_LOCALS" value="true" />
     <option name="GENERATE_FINAL_PARAMETERS" value="true" />
@@ -66,6 +70,7 @@
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="JavaScript">
+    <option name="RIGHT_MARGIN" value="140" />
     <indentOptions>
       <option name="USE_TAB_CHARACTER" value="true" />
     </indentOptions>

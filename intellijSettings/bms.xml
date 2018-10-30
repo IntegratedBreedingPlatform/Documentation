@@ -4,6 +4,7 @@
     <option name="KEEP_SINGLE_LINE_BLOCKS" value="true" />
   </CssCodeStyleSettings>
   <JSCodeStyleSettings>
+    <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
     <option name="OBJECT_LITERAL_WRAP" value="1" />
     <option name="IMPORTS_WRAP" value="1" />
   </JSCodeStyleSettings>

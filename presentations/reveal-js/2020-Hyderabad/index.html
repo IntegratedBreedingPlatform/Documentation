@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/reveal.css">
+	<link rel="stylesheet" href="../css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<section data-markdown>
+			<script type="text/template">
+				![IBP](../images/ibp.png)
+				## BMS - Breeding Management System
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## BMS
+				- Multi-module system
+				- Multi-crop
+				- Multi-program
+			</script>
+		</section>
+
+		<section>
+			<section data-background-iframe="http://localhost:8080/ibpworkbench/main" data-background-interactive>
+			</section>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## Inside a program - Modules
+				- Breeding Activities
+				  - Manage germplasm
+				  - Manage studies
+				  - Manage samples
+				- Information Management
+				  - Import germplasm
+				  - Manage Ontologies
+				  - more..
+				- Statistical analysis
+				  - run analysis tools on your studies
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## Tech stack
+
+				- Backend
+				  - Java / Spring / Hibernate
+				  - MySQL
+				- Frontend
+				  - Vaadin (legacy)
+				  - Thymeleaf
+				  - AngularJs / Angular 2 / 6
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## BMSAPI
+				- All new modules interact directly with BMSAPI
+				- Internal API
+				- BrAPI
+			</script>
+		</section>
+
+		<section>
+			<section data-background-iframe="http://localhost:8080/bmsapi" data-background-interactive>
+			</section>
+		</section>
+
+	</div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		hash: true,
+		dependencies: [
+			{src: '../plugin/markdown/marked.js'},
+			{src: '../plugin/markdown/markdown.js'},
+			{src: '../plugin/highlight/highlight.js'},
+			{src: '../plugin/notes/notes.js', async: true}
+		],
+		totalTime: 600
+	});
+</script>
+</body>
+</html>

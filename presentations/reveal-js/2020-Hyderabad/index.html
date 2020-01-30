@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>BMS Hyderabad 2020</title>
+
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/reveal.css">
+	<link rel="stylesheet" href="../css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="../lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<section data-markdown>
+			<script type="text/template">
+				![IBP](../images/ibp.png)
+				## BMS - Breeding Management System
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## BMS
+				- Multi-module system
+				- Multi-crop
+				- Multi-program
+			</script>
+		</section>
+
+		<section data-background-iframe="http://localhost:8080/ibpworkbench/main" data-background-interactive>
+			<aside class="notes" data-markdown>
+                - Create a program
+                - Pick crop
+                
+                Inside a program - Modules
+                
+                - Import a germplasm list
+                - Manage germplasm
+                - Manage studies
+                  - select germplasm
+                  - no of environments
+                  - generate design
+                  - start working with phenotypes
+                  - new feature: sub-observations
+                    - import observations
+                    - review and curate data
+                  - generate samples
+                - Manage samples
+                - Manage Ontologies
+                  - formulas
+                - more..
+                - run analysis tools on your studies
+			</aside>
+		</section>
+
+		<section data-markdown data-separator-notes="^Note:">
+			<script type="text/template">
+				## Tech stack
+
+				- Backend
+				  - Java / Spring / Hibernate
+				  - MySQL
+				- Frontend
+				  - Vaadin (legacy)
+				  - Thymeleaf
+				  - AngularJs / Angular 2 / 6
+
+				Note:
+				We've been migrating legacy modules into angular apps that consume api services
+			</script>
+		</section>
+
+		<section data-markdown data-separator-notes="^Note:">
+			<script type="text/template">
+				## BMSAPI
+
+				- All new modules interact directly with BMSAPI
+				- Internal API
+				- BrAPI
+
+				Note:
+			</script>
+		</section>
+
+        <section data-background-iframe="http://localhost:8080/bmsapi" data-background-interactive>
+			<aside class="notes" data-markdown>
+				- Tons of internal and BrAPI endpoints
+			</aside>
+        </section>
+
+		<section data-markdown data-separator-notes="^Note:">
+			<script type="text/template">
+				BMSAPI swaggerhub
+
+				https://app.swaggerhub.com/apis/ibp_bms/BMSAPI/14
+
+				These slides are also available at:
+
+				https://github.com/IntegratedBreedingPlatform/Documentation
+
+				Note:
+			</script>
+		</section>
+
+
+		<section data-markdown data-separator-notes="^Note:">
+			<script type="text/template">
+				## User management
+
+				- Create users
+				- Create roles and assign permissions to roles
+				- Assign roles to users
+
+				Note:
+			</script>
+		</section>
+
+		<section data-background-iframe="http://localhost:8080/ibpworkbench/main" data-background-interactive>
+			<aside class="notes" data-markdown>
+				- Site admin
+				- default user admin
+				 - superadmin access
+				- create roles
+				 - default roles
+				 - permissions
+				  - per instance/crop/program
+			</aside>
+		</section>
+
+		<section data-markdown data-separator-notes="^Note:">
+			<script type="text/template">
+				## BrAPI
+
+				- Internal usage
+				 - Increasing over time
+				 - But still low comparing with internal API
+				- Most calls on v1.2, some on v1.3
+				- Started working on v2 calls
+				- Supports some features of the BrAPI R-Package
+				- BrAPPs
+				 - Graphical Filtering tool
+				 - Fieldmap (new): editing geo-coordinates (geoJSON)
+
+				Note:
+				- BMS support some of the R-package
+			</script>
+		</section>
+
+		<section data-markdown data-separator-notes="^Note:">
+			<script type="text/template">
+				## Hyderabad Hackaton
+
+				- Fieldbook Beta BrAPI integration / BMS
+				- BMS integration with GOBii
+				- BrAPI-fieldmap BrAPP
+
+				Note:
+			</script>
+		</section>
+
+	</div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+	// More info about config & dependencies:
+	// - https://github.com/hakimel/reveal.js#configuration
+	// - https://github.com/hakimel/reveal.js#dependencies
+	Reveal.initialize({
+		hash: true,
+		dependencies: [
+			{src: '../plugin/markdown/marked.js'},
+			{src: '../plugin/markdown/markdown.js'},
+			{src: '../plugin/highlight/highlight.js'},
+			{src: '../plugin/notes/notes.js', async: true}
+		],
+		totalTime: 600,
+		preloadIframes: true
+	});
+</script>
+</body>
+</html>

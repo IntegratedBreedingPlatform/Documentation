@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>BMS Hyderabad 2020</title>
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css" id="highlight-theme">
+
+	<style>
+		.reveal section img { background:none; border:none; box-shadow:none; }
+
+		.reveal section pre code {
+			font-size: 0.7em;
+		}
+	</style>
+
+</head>
+<body>
+<div class="reveal">
+	<div class="slides">
+		<section data-markdown>
+			<script type="text/template">
+				![IBP](../images/ibp.png)
+
+				BMS - Breeding Management System
+
+				![BrAPI](../images/brapi-logo.svg)
+
+				[BrAPPs](https://brapi.org/brapps) - BrAPI enabled applications
+			</script>
+		</section>
+
+		<section data-background-iframe="https://brapi.org/brapps" data-background-interactive>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## 2019 EIB sponsored Sabbatical
+				- Focused on BrAPPs
+				- Hosted by Lukas Mueller at the BTI institute
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## GeoJson
+				- Some entities in the BrAPI standard have geographic information (observation units, location, images)
+				- This information is presented in the GeoJSON format
+
+                    {
+                      "type": "Feature",
+                      "geometry": {
+                        "type": "Point",
+                        "coordinates": [125.6, 10.1]
+                      },
+                      "properties": {
+                        "name": "Dinagat Islands"
+                      }
+                    }
+
+			</script>
+		</section>
+
+		<section data-markdown data-auto-animate="">
+			<script type="text/template">
+				## BrAPI-Heatmap
+				Is a concept BrAPP for visualizing phenotyping data across plots in a study
+				<!-- .element data-id="h-desc" -->
+
+				![Heatmap](images/heatmap.png) <!-- .element height="50%" width="50%" -->
+			</script>
+		</section>
+
+		<section data-markdown data-auto-animate>
+			<script type="text/template">
+				## BrAPI-Heatmap
+				For this tool to work, the geojson information should be already present in the observation units
+				<!-- .element style="color: red" data-id="h-desc" -->
+
+				![Heatmap](images/heatmap.png) <!-- .element height="50%" width="50%" -->
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## BrAPI GeoJSON editor
+				This tool comes to fill this vacuum, by providing a way to edit the geographic information of a study
+
+				![BrAPI-Fieldmap](images/fieldmap.png) <!-- .element height="50%" width="50%" -->
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+				## Development
+				- Using BrAPI-Heatmap as inspiration
+				- Libraries
+				 - Leaflet: interactive maps
+				 - turf.js: geospatial manipulation of GeoJSON objects
+				 - d3.js: other tasks
+				- and cassavabase BrAPI test servers
+			</script>
+		</section>
+
+		<section data-markdown>
+			<script type="text/template">
+			</script>
+		</section>
+	</div>
+</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+
+<script>
+	// More info about initialization & config:
+	// - https://revealjs.com/initialization/
+	// - https://revealjs.com/config/
+	Reveal.initialize({
+		hash: true,
+		totalTime: 600,
+		preloadIframes: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [
+			RevealMarkdown,
+			RevealHighlight,
+			RevealNotes,
+			RevealZoom
+		]
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+@startuml
+actor User
+
+User -> UI: login
+activate UI
+
+UI -> WorkbenchAuthenticationSuccessHandler: success login
+activate WorkbenchAuthenticationSuccessHandler
+
+WorkbenchAuthenticationSuccessHandler -> ReleaseNoteService: should show release note
+activate ReleaseNoteService
+
+participant Session
+
+database database as DB
+ReleaseNoteService -> DB: get latest release note
+activate DB
+DB --> ReleaseNoteService: release note
+deactivate DB
+
+ReleaseNoteService -> DB: check if user has already a release note
+activate DB
+DB --> ReleaseNoteService: release note for person
+deactivate DB
+
+ReleaseNoteService --> WorkbenchAuthenticationSuccessHandler : release note
+deactivate ReleaseNoteService
+
+WorkbenchAuthenticationSuccessHandler -> Session : show release note
+deactivate WorkbenchAuthenticationSuccessHandler
+
+UI -> User : show release note
+deactivate UI
+@enduml
